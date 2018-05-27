@@ -1,0 +1,3 @@
+out/
+riak_client/riak-erlang-client-master/deps
+riak_client/riak-erlang-client-master/ebin
