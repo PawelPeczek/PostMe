@@ -26,6 +26,10 @@ defmodule PostMeServer do
     GenServer.call(PostMeServer, {:delete_post, post_id})
   end
 
+  def stop() do
+    GenServer.call(PostMeServer, :stop)
+  end
+
   # GenServer core
 
   def start_link() do
@@ -62,7 +66,7 @@ defmodule PostMeServer do
     {:stop, :normal, state}
   end
 
-  def terminate(reason, state) do
+  def terminate(_, state) do
     :riakc_pb_socket.stop(state.riak_pid)
     IO.puts "PostMeServer has terminated.\n"
   end

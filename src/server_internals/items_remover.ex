@@ -7,15 +7,15 @@ defmodule ItemsRemover do
 
   def remove_post_from_database(post_id, state) do
     :riakc_pb_socket.delete(state.riak_pid, state.posts, post_id)
-    |> dispatch_removal_continuation(post_id, state)
+    |> remove_from_connected_tables(post_id, state)
   end
 
-  defp dispatch_removal_continuation(:ok, post_id, state) do
+  defp remove_from_connected_tables(:ok, post_id, state) do
     rem_post_fr_sec_idx(post_id, state.users, &remove_from_single_user_entry/3, state)
     rem_post_fr_sec_idx(post_id, state.hashes, &remove_from_single_ht_entry/3, state)
     {:reply, :ok, state}
   end
-  defp dispatch_removal_continuation(:ok, post_id, state) do
+  defp remove_from_connected_tables(:ok, post_id, state) do
     {:reply, :error, state}
   end
 
@@ -25,43 +25,51 @@ defmodule ItemsRemover do
       {<<"indexes">>, table},
       {:binary_index, 'post_id'},
       post_id
-    ) |> removal_dispatch(post_id, rem_fun, state)
+    ) |> remove_each(post_id, rem_fun, state)
   end
 
-  defp removal_dispatch({:ok, {:index_results_v1, res, _, _}}, post_id, rem_fun, state) do
+  defp remove_each({:ok, {:index_results_v1, res, _, _}}, post_id, rem_fun, state) do
     res |> Enum.each(& rem_fun.(&1, post_id, state))
     {:reply, :ok, state}
   end
-  defp removal_dispatch(_, _, _, state) do
+
+  defp remove_each(_, _, _, state) do
     {:reply, {:error, :unable_to_delete}, state}
   end
 
   defp remove_from_single_ht_entry(hash_tag, post_id, _state) do
-    db_put = & :riakc_pb_socket.put(_state.riak_pid, &1)
-    make_new_ht_object = & :riakc_obj.new(_state.hashes, &1.hash_tag, &1)
     {ht_object, ht_struct} = prep_obj_struct_pair(_state.riak_pid, _state.hashes, hash_tag)
-    {_, new_posts} = Map.pop(ht_struct.posts, post_id)
-    new_ht_struct = %HashtagPost{
+    new_ht_struct = ht_struct.posts |> prep_new_posts(post_id) |> make_new_ht_struct(hash_tag)
+    new_ht_object = new_ht_struct |> RiakUtils.new_ht(_state)
+    {old_meta, old_sec_idx, new_sec_idx} = prep_values_to_refr_sec_idx(ht_object, post_id)
+    renew_item(new_sec_idx, new_ht_object, _state.riak_pid)
+  end
+
+  defp make_new_ht_struct(new_posts, hash_tag) do
+    %HashtagPost{
       hash_tag: hash_tag,
       posts: new_posts
     }
-    new_ht_object = new_ht_struct |> make_new_ht_object.()
-    {old_meta, old_sec_idx, new_sec_idx} = prep_values_to_refr_sec_idx(ht_object, post_id)
-    renew_item(new_sec_idx, new_ht_object, db_put)
   end
 
   defp remove_from_single_user_entry(user, post_id, _state) do
-    db_put = & :riakc_pb_socket.put(_state.riak_pid, &1)
-    make_new_user_object = & :riakc_obj.new(_state.users, &1.user, &1)
     {user_object, user_struct} = prep_obj_struct_pair(_state.riak_pid, _state.users, user)
-    {_, new_posts} = Map.pop(user_struct.posts, post_id)
-    new_user_struct = %UserPost{
+    new_user_struct = user_struct.posts |> prep_new_posts(post_id) |> make_new_user_struct(user)
+    new_user_object = new_user_struct |> RiakUtils.new_user(_state)
+    {old_meta, old_sec_idx, new_sec_idx} = prep_values_to_refr_sec_idx(user_object, post_id)
+    renew_item(new_sec_idx, new_user_object, _state.riak_pid)
+  end
+
+  defp make_new_user_struct(new_posts, user) do
+    %UserPost{
       user: user,
       posts: new_posts
     }
-    new_user_object = new_user_struct |> make_new_user_object.()
-    {old_meta, old_sec_idx, new_sec_idx} = prep_values_to_refr_sec_idx(user_object, post_id)
-    renew_item(new_sec_idx, new_user_object, db_put)
+  end
+
+  defp prep_new_posts(old_posts, post_id) do
+    {_, new_posts} = Map.pop(old_posts, post_id)
+    new_posts
   end
 
   defp prep_obj_struct_pair(riak_pid, table, prim_idx) do
@@ -91,12 +99,13 @@ defmodule ItemsRemover do
   defp renew_item([], _, _) do
     :ok
   end
-  defp renew_item(new_sec_idx, new_obj, db_put) do
+
+  defp renew_item(new_sec_idx, new_obj, riak_pid) do
     new_meta = new_obj
                |> :riakc_obj.get_update_metadata()
                |> :riakc_obj.set_secondary_index(
                     [{{:binary_index, <<"post_id">>}, new_sec_idx}])
-    :ok = new_obj |> :riakc_obj.update_metadata(new_meta) |> db_put.()
+    :ok = new_obj |> :riakc_obj.update_metadata(new_meta) |> RiakUtils.db_put(riak_pid)
   end
 
 end

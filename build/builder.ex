@@ -5,6 +5,7 @@ defmodule Builder do
       "../src/structs/post.ex",
       "../src/structs/server_state.ex",
       "../src/structs/user_post.ex",
+      "../src/utils/riak_utils.ex",
       "../src/server_internals/items_getter.ex",
       "../src/server_internals/items_remover.ex",
       "../src/server_internals/posts_adder.ex",
