@@ -15,4 +15,8 @@ defmodule RiakUtils do
     :riakc_obj.new(state.users, struct.user, struct)
   end
 
+  def new_post_with_unknown_key(struct, state) do
+    :riakc_obj.new(state.posts, :undefined, struct)
+  end
+
 end
