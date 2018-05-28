@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fbeed7e3-2b6a-4014-b4e0-3b50ce9a46d2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/server_internals/posts_adder.ex" afterPath="$PROJECT_DIR$/src/server_internals/posts_adder.ex" />
-      <change beforePath="$PROJECT_DIR$/src/utils/riak_utils.ex" afterPath="$PROJECT_DIR$/src/utils/riak_utils.ex" />
-    </list>
+    <list default="true" id="fbeed7e3-2b6a-4014-b4e0-3b50ce9a46d2" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -82,8 +78,8 @@
       <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="450">
+              <caret line="25" column="29" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="917" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -400,15 +396,16 @@
       <workItem from="1527420608075" duration="45891000" />
       <workItem from="1527518849912" duration="6118000" />
       <workItem from="1527543066971" duration="362000" />
-      <workItem from="1527544051129" duration="3000" />
+      <workItem from="1527544051129" duration="36000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52374000" />
+    <option name="totallyTimeSpent" value="52407000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="27" width="1280" height="1053" extended-state="4" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -450,13 +447,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/riak_client/riak-erlang-client-master/src/riakc_obj.erl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-38">
-          <caret line="447" column="19" lean-forward="false" selection-start-line="447" selection-start-column="0" selection-end-line="447" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/riak_client/riak-erlang-client-master/src/riakc_pb_socket.erl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6012">
@@ -835,6 +825,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="29" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="917" selection-end-column="10" />
           <folding />
         </state>
       </provider>
