@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbeed7e3-2b6a-4014-b4e0-3b50ce9a46d2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/build/builder.ex" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/server_internals/items_getter.ex" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/server_internals/items_remover.ex" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/server_internals/posts_adder.ex" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/hashtag_post.ex" afterPath="$PROJECT_DIR$/src/structs/hashtag_post.ex" />
-      <change beforePath="$PROJECT_DIR$/src/post.ex" afterPath="$PROJECT_DIR$/src/structs/post.ex" />
-      <change beforePath="$PROJECT_DIR$/src/post_me_server.ex" afterPath="$PROJECT_DIR$/src/post_me_server.ex" />
-      <change beforePath="$PROJECT_DIR$/src/server_state.ex" afterPath="$PROJECT_DIR$/src/structs/server_state.ex" />
-      <change beforePath="$PROJECT_DIR$/src/user_post.ex" afterPath="$PROJECT_DIR$/src/structs/user_post.ex" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="post_me_server.ex" pinned="false" current-in-tab="false">
+      <file leaf-file-name="post_me_server.ex" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/post_me_server.ex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="40" column="9" lean-forward="false" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+            <state relative-caret-position="0">
+              <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -46,11 +38,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="items_remover.ex" pinned="false" current-in-tab="true">
+      <file leaf-file-name="items_remover.ex" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server_internals/items_remover.ex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="14" column="45" lean-forward="false" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+            <state relative-caret-position="306">
+              <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Makefile" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/riak_client/riak-erlang-client-master/Makefile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -106,26 +108,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="riakc_obj.erl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/riak_client/riak-erlang-client-master/src/riakc_obj.erl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-38">
-              <caret line="447" column="19" lean-forward="false" selection-start-line="447" selection-start-column="0" selection-end-line="447" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server_state.ex" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/structs/server_state.ex">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -171,6 +153,7 @@
         <option value="$PROJECT_DIR$/build/builder.ex" />
         <option value="$PROJECT_DIR$/src/post_me_server.ex" />
         <option value="$PROJECT_DIR$/src/server_internals/items_remover.ex" />
+        <option value="$PROJECT_DIR$/Makefile" />
       </list>
     </option>
   </component>
@@ -220,6 +203,11 @@
               <item name="PostMe" type="b2602c69:ProjectViewProjectNode" />
               <item name="PostMe" type="462c0819:PsiDirectoryNode" />
               <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PostMe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PostMe" type="462c0819:PsiDirectoryNode" />
+              <item name="riak_client" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PostMe" type="b2602c69:ProjectViewProjectNode" />
@@ -377,15 +365,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1527420603654</updated>
-      <workItem from="1527420608075" duration="43590000" />
+      <workItem from="1527420608075" duration="45369000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43590000" />
+    <option name="totallyTimeSpent" value="45369000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="27" width="1280" height="1053" extended-state="4" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -397,7 +386,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33846155" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31098902" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31098902" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2573052" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
@@ -547,18 +536,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/post_me_server.ex">
+    <entry file="file://$PROJECT_DIR$/riak_client/riak-erlang-client-master/Makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="40" column="9" lean-forward="false" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="4" lean-forward="true" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server_internals/items_remover.ex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="14" column="45" lean-forward="false" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+        <state relative-caret-position="306">
+          <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/post_me_server.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="22" />
           <folding />
         </state>
       </provider>
