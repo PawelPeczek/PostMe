@@ -14,14 +14,12 @@ defmodule PostsAdder do
   end
 
   defp insert_post(_user, _hash_tags, _content, state) do
-    db_put = & :riakc_pb_socket.put(state.riak_pid, &1)
-    new_post = & :riakc_obj.new(state.posts, :undefined, &1)
     {:ok, response} =
       %Post{
         content: _content,
         user: _user,
         hash_tags: _hash_tags
-      } |> new_post.() |> db_put.()
+      } |> RiakUtils.new_post_with_unknown_key(state) |> RiakUtils.db_put(state.riak_pid)
     response
   end
 
