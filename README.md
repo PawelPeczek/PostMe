@@ -64,17 +64,12 @@ For full details check
 
 ### Building
 ```console
-[user@PostMe]$ make all
+[user@PostMe]$ mix compile
 ```
 
-### Recompiling
+### Running inside iex
 ```console
-[user@PostMe]$ make compile
-```
-
-### Running
-```console
-[user@PostMe]$ make start
+[user@PostMe]$ iex -S mix
 ```
 
 ## API

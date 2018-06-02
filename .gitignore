@@ -1,3 +1,18 @@
-out/
-riak_client/riak-erlang-client-master/deps
-riak_client/riak-erlang-client-master/ebin
+created by https://www.gitignore.io/api/elixir
+
+### Elixir ###
+/_build
+/cover
+/deps
+/doc
+/.fetch
+erl_crash.dump
+*.ez
+*.beam
+
+### Elixir Patch ###
+
+# End of https://www.gitignore.io/api/elixir
+
+*.iml
+.idea/
