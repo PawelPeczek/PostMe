@@ -1,15 +1,15 @@
-defmodule PostMeLibrary.MixProject do
+defmodule RestApi.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :library,
+      app: :rest_api,
       version: "0.1.0",
-      elixir: "~> 1.6",
       build_path: "../../_build",
-      config_path: "../../config/config.exs",
+      #config_path: "../../config/config.exs",
       deps_path: "../../deps",
       lockfile: "../../mix.lock",
+      elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -17,14 +17,17 @@ defmodule PostMeLibrary.MixProject do
 
   def application do
     [
-      extra_applications: [:logger],
-      mod: {PostMeLibrary.Application, []}
+      extra_applications: [:logger]
     ]
   end
 
   defp deps do
     [
-      {:riakc, "~> 2.5"}
+      {:library, in_umbrella: true},
+
+      {:maru, "~> 0.13"},
+      {:cowboy, "~> 2.3"},
+      {:jason, "~> 1.0"}
     ]
   end
 end
