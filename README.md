@@ -51,7 +51,7 @@ About to connect() to 127.0.0.1 port 8098 (#0)
 ### Config changes
 By default server is set to use localhost:8087 (default config).
 It's crutial to change riak configuration so that the database would be saved on disc (otherwise secondery indices may not work). To do that modify file app.config (could be for example in /etc/riak directory)
-```
+```p
 {riak_kv, [
     %% ...
     {storage_backend, riak_kv_eleveldb_backend},
@@ -62,7 +62,15 @@ For full details check
 * https://docs.basho.com/riak/kv/2.2.2/developing/usage/secondary-indexes/
 * https://docs.basho.com/riak/kv/2.2.2/setup/planning/backend/leveldb/
 
+
+### Prerequisites
+
 ### Building
+When building the code for the first time:
+```console
+[user@PostMe]$ mix deps.get
+```
+Then:
 ```console
 [user@PostMe]$ mix compile
 ```
@@ -73,7 +81,7 @@ For full details check
 ```
 
 ## API
-* PostMeServer.start_link() - starting server
+* PostMeServer.start_link() - starting server, gets run automatically when using `iex -S mix`
 * PostMeServer.add_post(user, hash_tags, content) - adding post as an user with [hash_tags] list
 * PostMeServer.find_user_posts(user) - getting all user's posts
 * PostMeServer.find_hashtag_posts(hashtag) - getting all posts connected with given hashtag
@@ -82,7 +90,7 @@ For full details check
 * PostMeServer.delete_post(post_id) - deleting of post
 
 ## Further development
-* Tests
-* server RESTfull API
-* server supervisor module
-* simple frontend (maybe)
+- [ ] Tests
+- [ ] server RESTfull API
+- [x] server supervisor module
+- [ ] simple frontend (maybe)
