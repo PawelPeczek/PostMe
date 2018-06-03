@@ -81,6 +81,8 @@ defmodule PostMeServer do
     IO.puts "PostMeServer has terminated.\n"
   end
 
+  #  Private functions
+
   defp handle_init({:ok, srv_pid}) do
     state = %ServerState{
       users: <<"Users">>,
@@ -90,8 +92,6 @@ defmodule PostMeServer do
     }
     {:ok, state}
   end
-
-  #  Private functions
 
   defp handle_init({:error, _}) do
     {:stop, :cannot_connect_to_database}

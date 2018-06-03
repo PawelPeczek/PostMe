@@ -1,5 +1,6 @@
 defmodule RestApi do
   use Maru.Router
+  use MaruSwagger
 
   before do
     plug Plug.Logger
@@ -25,5 +26,10 @@ defmodule RestApi do
     |> put_status(500)
     |> text(exception.message)
   end
+
+  swagger at:         "/swagger",      # (required) the mount point for the URL
+          pretty:     true,            # (optional) should JSON be pretty-printed?
+          except:     [:prod],         # (optional) the environments swagger NOT works
+          force_json: true             # (optional) force JSON for all params instead of formData
 
 end
