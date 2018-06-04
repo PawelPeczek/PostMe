@@ -4,6 +4,7 @@ defmodule RestApi do
 
   before do
     plug Plug.Logger
+    plug Corsica, max_age: 600, origins: "*"
   end
 
   plug Plug.Parsers,

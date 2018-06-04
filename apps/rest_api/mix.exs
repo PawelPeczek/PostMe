@@ -17,7 +17,7 @@ defmodule RestApi.MixProject do
 
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger, :corsica],
     ]
   end
 
@@ -28,7 +28,8 @@ defmodule RestApi.MixProject do
       {:maru, "~> 0.13"},
       {:maru_swagger, "~> 0.8.5"},
       {:cowboy, "~> 2.3"},
-      {:jason, "~> 1.0"}
+      {:jason, "~> 1.0"},
+      {:corsica, "~> 1.0"}
     ]
   end
 end

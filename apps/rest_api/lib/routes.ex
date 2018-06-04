@@ -51,7 +51,7 @@ defmodule Rest.Router do
 
         route_param :id, type: String do
             delete do
-                json(conn, PostM)
+                json(conn, PostMeServer.delete_post(params[:id]))
             end
         end
         
